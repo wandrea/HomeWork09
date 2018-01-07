@@ -112,8 +112,24 @@ public class FileOperation {
                     System.out.println(file.getName());
                 }
             }
-        }catch (Exception e) {
-            e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+    public static void printFilesInDirectory(String folderName) {
+        try {
+            File folder = new File(folderName);
+            File[] listOfFiles = folder.listFiles();
+            for (File file : listOfFiles) {
+                if (!file.isDirectory()) {
+                    System.out.println(file.getName());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
