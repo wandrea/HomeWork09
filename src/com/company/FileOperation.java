@@ -131,5 +131,19 @@ public class FileOperation {
         }
     }
 
+    //Ez a metódus nincs bent az UML-ben.
+    public static void printAllInDirectory(String folderName) {
+        try {
+            File folder = new File(folderName);
+            File[] listOfFiles = folder.listFiles();
+            for (File file : listOfFiles) {
+                System.out.println(file.getName());
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
