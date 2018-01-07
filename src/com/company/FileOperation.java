@@ -146,4 +146,34 @@ public class FileOperation {
 
     }
 
+    public static boolean isFilesEquals(String fileName1, String fileName2) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName1));
+             BufferedReader br2 = new BufferedReader(new FileReader(fileName2))) {
+            String line1 = "";
+            String line2 = "";
+            while (true) {
+                line1 = br.readLine();
+                line2 = br2.readLine();
+                if (line1 == null && line2 == null) {
+                    break;
+                }
+                if (line1 == null && line2 != null || line1 != null && line2 == null) {
+                    return false;
+                }
+                if (!line1.equals(line2)) {
+                    return false;
+                }
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        return true;
+
+    }
+
 }
